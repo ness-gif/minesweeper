@@ -228,7 +228,7 @@ function open_square(row, column) {
 
 function flag_square(row, column) {
     if (opened[row][column] == 0 && !game_stop) {
-        board_html_container[row][column].classList.add('flagged');
+        board_html_container[row][column].classList.toggle('flagged');
     }
 }
 

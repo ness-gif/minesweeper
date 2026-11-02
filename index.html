@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MINESWEEPER</title>
+<style>
+body {
+    height: 100vh;
+    margin: 0;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    background-color: black;
+    color: white;
+    text-align: center;
+    .main {
+        display: grid;
+        grid-template-rows: auto auto;
+        row-gap: min(5vh, 5vw);
+        .text {
+            .title {
+                font-size: min(12vh, 12vw);
+            }
+            .description {
+                font-size: min(5vh, 5vw);
+            }
+        }
+        .option {
+            font-size: min(5vh, 5vw);
+            div {
+                text-align: center;
+            }
+            .custom {
+                margin-top: min(3vh, 3vw);
+                #button {
+                    color: blue;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+</style>
+</head>
+<body>
+    <div class="main">
+        <div class="text">
+            <div class="title">MINESWEEPER</div>
+            <div class="description">A classic computer game</div>
+        </div>
+        <div class="option">
+            <div class="easy"><a href="./minesweeper.html?bomb=10">EASY</a></div>
+            <div class="normal"><a href="./minesweeper.html?bomb=20">NORMAL</a></div>
+            <div class="hard"><a href="./minesweeper.html?bomb=30">HARD</a></div>
+            <div class="custom">
+                <div>CUSTOM</div>
+                <input type="range" id="range" min="0" max="99" step="1" value="10" oninput="this.nextElementSibling.value = this.value" onchange="this.nextElementSibling.value = this.value">
+                <input type="number" id="number" min="0" max="99" step="1" value="10" onkeyup="this.previousElementSibling.value = this.value" onchange="this.previousElementSibling.value = this.value">
+                <div id="button">CONFIRM</div>
+            </div>
+        </div>
+    </div>
+
+<script>
+let button_html = document.getElementById('button');
+let range_html = document.getElementById('range');
+button_html.addEventListener('click', () => {
+    location.href = window.location.href.replace(/index(?=\.html)/, 'minesweeper') + `?bomb=${range_html.value}`;
+});
+</script>
+</body>
+</html>

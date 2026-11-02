@@ -98,7 +98,7 @@ let bomb = 10;
 let url = new URL(window.location.href);
 let params = url.searchParams;
 try {
-    bomb = params.get('bomb');
+    bomb = Number(params.get('bomb'));
 } catch {
     bomb = 10;
 }

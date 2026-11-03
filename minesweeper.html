@@ -219,7 +219,7 @@ function open_square(row, column) {
                 }
             }
         }
-        if (hidden_number == bomb) {
+        if (hidden_number == bomb && !game_stop) {
             game_stop = true;
             message_text_html.style.color = 'red';
             message_text_html.innerHTML = 'GAME CLEAR';

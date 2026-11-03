@@ -207,6 +207,8 @@ function open_square(row, column) {
         board_html_container[row][column].classList.remove('hidden');
         if (board[row][column] == '爆') {
             game_stop = true;
+            message_text_html.style.color = 'blue';
+            message_text_html.innerHTML = 'GAME OVER';
             message_html.style.display = 'block';
         }
         let hidden_number = 0;
@@ -219,9 +221,9 @@ function open_square(row, column) {
         }
         if (hidden_number == bomb) {
             game_stop = true;
-            message_html.style.display = 'block';
             message_text_html.style.color = 'red';
             message_text_html.innerHTML = 'GAME CLEAR';
+            message_html.style.display = 'block';
         }
     }
 }

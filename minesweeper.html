@@ -229,6 +229,15 @@ function open_square(row, column) {
             message_text_html.innerHTML = 'GAME CLEAR';
             message_html.style.display = 'block';
         }
+        if (!game_stop && board[row][column] == 0) {
+            for (let i = 0; i < 8; i++) {
+                if (row + rshift[i] >= 0 && row + rshift[i] <= 9
+                 && column + cshift[i] >= 0 && column + cshift[i] <= 9
+                ) {
+                    open_square(row + rshift[i], column + cshift[i]);
+                }
+            }
+        }
     }
 }
 

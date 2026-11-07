@@ -179,6 +179,10 @@ for (let i = 0; i < 10; i++) {
             } else if (flag) {
                 flag_square(i, j);
             }
+        
+        column_html.addEventListener('contextmenu', (event) => {
+            event.preventDefault();
+            flag_square(i, j);
         });
         row_html.appendChild(column_html);
         alt.push(column_html);
